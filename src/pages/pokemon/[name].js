@@ -101,7 +101,7 @@ export default function PokemonDetails({ pokemon }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/pokemon/${params.name}`);
   const data = await res.json();
   const pokemon = {
     name: data.name,

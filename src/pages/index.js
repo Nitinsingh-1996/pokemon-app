@@ -3,7 +3,7 @@ import PokemonFilter from "../components/PokemonFilter";
 import PokemonList from "../components/PokemonList";
 
 export async function getServerSideProps() {
-  const res = await fetch("https://pokeapi.co/api/v2/type");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/type`);
   const types = await res.json();
   return { props: { types: types.results } };
 }
@@ -16,7 +16,7 @@ export default function Home({ types }) {
 
   useEffect(() => {
     const fetchPokemons = async () => {
-      const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=150`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/pokemon?limit=150`);
       const data = await res.json();
 
       const pokemonDetails = await Promise.all(
@@ -43,7 +43,7 @@ export default function Home({ types }) {
         return;
       }
 
-      const res = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/type/${type}`);
       const data = await res.json();
 
       const pokemonByType = await Promise.all(

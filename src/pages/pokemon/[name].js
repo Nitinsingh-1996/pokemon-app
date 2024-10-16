@@ -30,8 +30,6 @@ export default function PokemonDetails({ pokemon }) {
         </div>
         <div className="bg-yellow-900 p-4 text-white">
           <p className="mb-2 last:mb-0 flex gap-x-1">
-            {console.log(pokemon.allData, "allData")}
-            {console.log(pokemon.stat, "allData stat")}
             <b className="min-w-[70px]">Name:</b> {pokemon.name}
           </p>
           <p className="mb-2 last:mb-0 flex gap-x-1">
